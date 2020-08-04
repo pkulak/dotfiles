@@ -3,7 +3,7 @@
     "height": 30, // Waybar height (to be removed for auto height)
     "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
     "modules-center": ["custom/weather"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "memory", "cpu", "custom/temperature", "custom/fan", "custom/packages", "clock", "tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "custom/temperature", "backlight", "battery", "clock", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -65,6 +65,11 @@
         },
         "on-click": "pavucontrol"
     },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{percent}% {icon}",
+        "format-icons": ["", ""]
+    },
     "custom/spotify": {
         "interval": 5,
         "return-type": "json",
@@ -78,13 +83,23 @@
     },
     "custom/temperature": {
         "interval": 10,
-	"exec": "sensors | grep CPUTIN | awk '{print substr($2, 2, 2)}'",
+	"exec": "sensors | grep 'Core 0:' | awk '{print substr($3, 2, 2)}'",
 	"format": "{}°C "
     },
     "custom/fan": {
         "interval": 2,
 	"exec": "sensors | grep fan2 | awk '{print $2}'",
 	"format": "{} "
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "max-length": 25
     },
     "custom/packages": {
         "interval": 86400,

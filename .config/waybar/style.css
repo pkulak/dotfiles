@@ -90,7 +90,7 @@ window#waybar.chromium {
 }
 
 #battery {
-    background-color: #ffffff;
+    background-color: #2980b9;
     color: #000000;
 }
 
@@ -147,6 +147,7 @@ label:focus {
 
 #backlight {
     background-color: #90b1b1;
+    color: #000000;
 }
 
 #network {

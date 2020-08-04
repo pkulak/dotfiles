@@ -20,8 +20,8 @@ output * bg $HOME/.config/sway/ivy.png fill
 
 ### Idle configuration
 exec swayidle -w \
-         timeout 480 'playerctl pause' \
-         timeout 3600 'systemctl suspend'
+         timeout 300 'playerctl pause' \
+         timeout 360 'systemctl suspend'
 
 ### Key bindings
 #
@@ -180,40 +180,9 @@ bar {
     swaybar_command waybar
 }
 
-# Inputs
-input 21298:5120:Clearly_Superior_Technologies._CST_Laser_Trackball {
-    natural_scroll enabled
-    scroll_method on_button_down
-    scroll_button 273
-    scroll_factor 0.4
-    accel_profile adaptive
-}
-
-input 1149:8257:Kensington_Kensington_Slimblade_Trackball {
-    natural_scroll enabled
-    scroll_method on_button_down
-    scroll_button 275
-}
-
-input 1149:8257:Kensington_Slimblade_Trackball {
-    natural_scroll enabled
-    scroll_method on_button_down
-    scroll_button 275
-}
-
 input type:touchpad {
     natural_scroll enabled
 }
-
-# Outputs
-
-# Focus on my main monitor
-workspace 1 output HDMI-A-1
-
-# Clamshell Mode
-set $laptop eDP-1
-bindswitch --reload lid:on output $laptop disable
-bindswitch --reload lid:off output $laptop enable
 
 # Night Mode
 exec redshift 
@@ -237,9 +206,13 @@ bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
+# Screen Brightness
+bindsym --locked XF86MonBrightnessUp exec brightnessctl -d intel_backlight s 10%+
+bindsym --locked XF86MonBrightnessDown exec brightnessctl -d intel_backlight s 10%-
+
 # Sublime Merge
 for_window [app_id="smerge"] floating enable
-for_window [app_id="smerge"] resize set 1440 1024
+for_window [app_id="smerge"] resize set 1200 600
 for_window [app_id="smerge"] border pixel 7
 
 # Pop-Up Terminal
@@ -273,8 +246,10 @@ exec_always {
 
 xwayland enabled
 
+focus_follows_mouse no
+
 default_border pixel 3
-gaps inner 10
+gaps inner 5
 
 # class                 border  bground text    indicator child_border
 client.focused          #285577 #285577 #FFFFFF #2E9EF4   #285577
@@ -285,8 +260,6 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 focus_follows_mouse yes
 
-# Startup Apps
-exec autotiling
-exec ~/.config/sway/home-screen.sh
+workspace 1
 
 include /etc/sway/config.d/*
