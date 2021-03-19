@@ -183,6 +183,7 @@ bar {
 
 input type:touchpad {
     natural_scroll enabled
+    scroll_factor 0.4
 }
 
 # Night Mode
