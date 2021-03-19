@@ -13,7 +13,8 @@ set $right l
 set $term alacritty
 
 # Menu
-set $menu "rofi -display-drun search -show drun -icon-theme \"Papirus\" -show-icons | xargs swaymsg exec --"
+exec ulauncher --hide-window
+set $menu ulauncher-toggle
 
 ### Output configuration
 output * bg $HOME/.config/sway/ivy.png fill
@@ -221,6 +222,9 @@ for_window [title="Popup Shell"] resize set 1280 720
 for_window [title="Popup Shell"] border pixel 7
 bindsym $mod+Shift+Return exec $term -t "Popup Shell" 
 
+# Launcher
+for_window [app_id="ulauncher"] border none
+
 # Caged Terminal
 bindsym $mod+Mod1+Return exec cage $term
 
@@ -246,7 +250,7 @@ exec_always {
 
 xwayland enabled
 
-focus_follows_mouse no
+focus_follows_mouse yes
 
 default_border pixel 3
 gaps inner 5
@@ -257,8 +261,6 @@ client.focused_inactive #5F676A #5F676A #FFFFFF #484E50   #5F676A
 client.unfocused        #222222 #222222 #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
-
-focus_follows_mouse yes
 
 workspace 1
 
