@@ -207,7 +207,7 @@ bindsym $mod+Shift+s exec slurp | grim -g - $HOME/Pictures/$(date +'screenshot_%
 # Multimedia
 bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioMute exec playerctl play-pause
 bindsym --locked XF86AudioPlay exec playerctl play-pause
 bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
@@ -248,6 +248,8 @@ exec_always {
     gsettings set $gnome-schema gtk-theme 'Ant-Dracula'
     gsettings set $gnome-schema icon-theme 'Papirus'
 }
+
+output eDP-1 scale 1.2
 
 xwayland enabled
 
