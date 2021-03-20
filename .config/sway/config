@@ -186,6 +186,10 @@ input type:touchpad {
     scroll_factor 0.4
 }
 
+input type:keyboard {
+  xkb_options altwin:swap_lalt_lwin,caps:escape
+}
+
 # Night Mode
 exec redshift 
 
@@ -214,7 +218,7 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl -d intel_backlight s 1
 
 # Sublime Merge
 for_window [app_id="smerge"] floating enable
-for_window [app_id="smerge"] resize set 1200 600
+for_window [app_id="smerge"] resize set 1400 800
 for_window [app_id="smerge"] border pixel 7
 
 # Pop-Up Terminal
@@ -237,10 +241,6 @@ for_window [title="Firefox — Sharing Indicator"] no_focus
 # Best to just let Steam be floating
 for_window [class="Steam"] floating enable
 
-# Emojis and a calculator!
-bindsym $mod+Mod1+e exec /usr/bin/rofimoji -c
-bindsym $mod+Mod1+c exec rofi -show calc -modi calc -no-show-match -no-sort
-
 # Theming
 set $gnome-schema org.gnome.desktop.interface
 
@@ -262,6 +262,8 @@ client.focused_inactive #5F676A #5F676A #FFFFFF #484E50   #5F676A
 client.unfocused        #222222 #222222 #888888 #292D2E   #222222
 client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
 client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+exec autotiling
 
 workspace 1
 
