@@ -18,7 +18,7 @@ font:
     family: Ubuntu Mono
   italic:
     family: Ubuntu Mono
-  size: 13
+  size: 15
 
 colors:
   primary:

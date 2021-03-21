@@ -175,7 +175,7 @@ bindsym $mod+r mode "resize"
 # All my stuff below here
 #########################
 
-font Cantarell 11
+font Cantarell 13
 
 bar {
     swaybar_command waybar
@@ -247,9 +247,10 @@ set $gnome-schema org.gnome.desktop.interface
 exec_always {
     gsettings set $gnome-schema gtk-theme 'Ant-Dracula'
     gsettings set $gnome-schema icon-theme 'Papirus'
+    gsettings set $gnome-schema text-scaling-factor '1.25'
 }
 
-output eDP-1 scale 1.2
+# output eDP-1 scale 1.2
 
 xwayland enabled
 
