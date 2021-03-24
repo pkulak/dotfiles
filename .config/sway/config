@@ -184,6 +184,7 @@ bar {
 input type:touchpad {
     natural_scroll enabled
     scroll_factor 0.4
+    click_method clickfinger
 }
 
 input type:keyboard {
