@@ -88,4 +88,3 @@ inoremap jj <esc>
 " Save files a bunch
 :au FocusLost * silent! wa
 :set autowrite
-
