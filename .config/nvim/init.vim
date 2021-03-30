@@ -88,3 +88,7 @@ inoremap jj <esc>
 " Save files a bunch
 :au FocusLost * silent! wa
 :set autowrite
+
+" Use system clipboard
+:set clipboard^=unnamedplus
+
