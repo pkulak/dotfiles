@@ -22,7 +22,7 @@ output * bg $HOME/.config/sway/ivy.png fill
 ### Idle configuration
 exec swayidle -w \
          timeout 300 'playerctl pause' \
-         timeout 360 'systemctl suspend'
+         timeout 1200 'systemctl suspend'
 
 ### Key bindings
 #
@@ -183,7 +183,6 @@ bar {
 
 input type:touchpad {
     natural_scroll enabled
-    scroll_factor 0.25
     click_method clickfinger
 }
 
