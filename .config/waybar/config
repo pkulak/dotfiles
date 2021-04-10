@@ -1,6 +1,6 @@
 {
     "layer": "top", // Waybar at top layer
-    "height": 30, // Waybar height (to be removed for auto height)
+    "height": 34, // Waybar height (to be removed for auto height)
     "modules-left": ["sway/workspaces", "sway/mode", "custom/spotify"],
     "modules-center": ["custom/weather"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "cpu", "custom/temperature", "backlight", "battery", "clock", "tray"],
