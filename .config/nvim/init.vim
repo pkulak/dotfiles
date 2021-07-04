@@ -89,6 +89,3 @@ inoremap jj <esc>
 :au FocusLost * silent! wa
 :set autowrite
 
-" Use system clipboard
-:set clipboard^=unnamedplus
-

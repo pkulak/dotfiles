@@ -175,20 +175,55 @@ bindsym $mod+r mode "resize"
 # All my stuff below here
 #########################
 
-font Cantarell 13
+font Cantarell 11
 
 bar {
     swaybar_command waybar
 }
 
+# Inputs
+input 21298:5120:Clearly_Superior_Technologies._CST_Laser_Trackball {
+    natural_scroll enabled
+    scroll_method on_button_down
+    scroll_button 273
+    scroll_factor 0.4
+    accel_profile adaptive
+}
+
+input 1149:8257:Kensington_Kensington_Slimblade_Trackball {
+    natural_scroll enabled
+    scroll_method on_button_down
+    scroll_button 275
+}
+
+input 1149:8257:Kensington_Slimblade_Trackball {
+    natural_scroll enabled
+    scroll_method on_button_down
+    scroll_button 275
+}
+
 input type:touchpad {
     natural_scroll enabled
     click_method clickfinger
+    scroll_factor 0.5
 }
+
+# Outputs
+
+# Focus on my main monitor
+workspace 1 output HDMI-A-1
+
+# Clamshell Mode
+set $laptop eDP-1
+bindswitch --reload lid:on output $laptop disable
+bindswitch --reload lid:off output $laptop enable
 
 input type:keyboard {
   xkb_options altwin:swap_lalt_lwin,caps:escape
 }
+
+bindsym $mod+Control+Shift+Right move workspace to output right
+bindsym $mod+Control+Shift+Left move workspace to output left
 
 # Night Mode
 exec redshift 
