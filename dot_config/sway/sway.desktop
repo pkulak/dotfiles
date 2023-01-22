@@ -1,0 +1,7 @@
+# Pop this in /usr/local/share/wayland-sessions/sway.desktop
+
+[Desktop Entry]
+Name=Sway
+Comment=An i3-compatible Wayland compositor
+Exec=/var/home/phil/dotfiles/bin/sway-run
+Type=Application

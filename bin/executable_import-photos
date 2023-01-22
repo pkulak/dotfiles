@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+sudo mkdir -p /var/mnt/usbstick
+sudo mount -o uid=phil,gid=phil /dev/sdb1 /var/mnt/usbstick
+
+mkdir -p ~/Drive/Negatives/$(date +%Y)/$(date +%m)/
+
+mv --backup=numbered /mnt/usbstick/DCIM/100OLYMP/*.ORF ~/Drive/Negatives/$(date +%Y)/$(date +%m)/
+
+sudo umount /var/mnt/usbstick

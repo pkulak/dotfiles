@@ -1,0 +1,347 @@
+### Variables
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Your preferred terminal emulator
+exec_always foot --server &
+set $term footclient distrobox enter arch -- /usr/bin/fish
+
+# Menu
+set $menu wofi -a -b -I -modi drun --show drun
+
+exec swayidle -w \
+         timeout 600 'swaymsg "output * dpms off"' \
+                 resume 'swaymsg "output * dpms on"' \
+         timeout 3600 'systemctl suspend' \
+                 after-resume 'swaymsg "output * dpms on" && sleep 8s && swaymsg reload'
+
+
+### Output configuration
+output * bg $HOME/.config/sway/f37-01-night.png fill
+
+### Key bindings
+#
+# Basics:
+#
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+w kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+#
+# Moving around:
+#
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+#
+# Workspaces:
+#
+    # Switch to workspace
+    bindsym $mod+Escape workspace 10
+    bindsym $mod+Tab workspace 9
+    bindsym $mod+1 workspace 1
+    bindsym $mod+2 workspace 2
+    bindsym $mod+3 workspace 3
+    bindsym $mod+4 workspace 4
+    bindsym $mod+5 workspace 5
+    bindsym $mod+6 workspace 6
+    bindsym $mod+7 workspace 7
+    bindsym $mod+8 workspace 8
+    bindsym $mod+9 workspace 9
+    bindsym $mod+0 workspace 10
+    # Move focused container to workspace
+    bindsym $mod+Shift+Escape move container to workspace 10
+    bindsym $mod+Shift+Tab move container to workspace 9
+    bindsym $mod+Shift+1 move container to workspace 1
+    bindsym $mod+Shift+2 move container to workspace 2
+    bindsym $mod+Shift+3 move container to workspace 3
+    bindsym $mod+Shift+4 move container to workspace 4
+    bindsym $mod+Shift+5 move container to workspace 5
+    bindsym $mod+Shift+6 move container to workspace 6
+    bindsym $mod+Shift+7 move container to workspace 7
+    bindsym $mod+Shift+8 move container to workspace 8
+    bindsym $mod+Shift+9 move container to workspace 9
+    bindsym $mod+Shift+0 move container to workspace 10
+
+    bindsym $mod+Control+Shift+Right move workspace to output right
+    bindsym $mod+Control+Shift+Left move workspace to output left
+    bindsym $mod+Control+Shift+Down move workspace to output down
+    bindsym $mod+Control+Shift+Up move workspace to output up 
+#
+# Layout stuff:
+#
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+t layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+    bindsym $mod+Shift+t sticky toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+    bindsym $mod+z focus child
+
+#
+# Scratchpad:
+#
+    # Sway has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+#
+# Resizing containers:
+#
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 25px
+    bindsym $down resize grow height 25px
+    bindsym $up resize shrink height 25px
+    bindsym $right resize grow width 25px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 25px
+    bindsym Down resize grow height 25px
+    bindsym Up resize shrink height 25px
+    bindsym Right resize grow width 25px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# 
+# Passthrough for using anything nested
+#
+mode "passthrough" {
+    bindsym F12 mode "default"
+}
+bindsym F12 mode "passthrough"
+
+#########################
+# All my stuff below here
+#########################
+
+font Cantarell 11
+
+bar {
+    swaybar_command waybar
+}
+
+# Inputs
+
+input 21298:5120:Clearly_Superior_Technologies._CST_Laser_Trackball {
+    natural_scroll enabled
+    scroll_method on_button_down
+    scroll_button 273
+    scroll_factor 0.3
+    accel_profile adaptive
+    pointer_accel -0.75
+}
+
+input 1149:8257:Kensington_Kensington_Slimblade_Trackball {
+    natural_scroll enabled
+    scroll_method on_button_down
+    scroll_button 275
+    accel_profile adaptive
+}
+
+input 1149:8257:Kensington_Slimblade_Trackball {
+    natural_scroll enabled
+    scroll_method on_button_down
+    scroll_button 275
+    accel_profile adaptive
+}
+
+input type:touchpad {
+    natural_scroll enabled
+}
+
+input type:pointer {
+    natural_scroll enabled
+}
+
+input type:keyboard {
+  repeat_delay 200
+  repeat_rate 30
+}
+
+# Outputs
+
+# Focus on my main monitor
+workspace 1 output HDMI-A-1
+
+# Clamshell Mode
+set $laptop eDP-1
+bindswitch --reload lid:on output $laptop disable
+bindswitch --reload lid:off output $laptop enable
+
+# Night Mode
+exec wlsunset -l 45.5 -L -122.6 -g 0.8
+
+# Hide our cursor after a bit
+seat * hide_cursor 3000
+
+# Notifications
+exec mako
+bindsym Control+Space exec makoctl dismiss
+bindsym Control+Shift+Space exec makoctl dismiss --all
+
+# Screenshots
+bindsym $mod+Shift+s exec slurp | grim -g - $HOME/Pictures/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+
+# Multimedia
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+
+# Sublime Merge
+for_window [app_id="smerge"] floating enable
+for_window [app_id="smerge"] resize set 1440 1024
+for_window [app_id="smerge"] border pixel 7
+
+# Volume Control
+for_window [app_id="pavucontrol"] floating enable
+
+#
+# exit mode
+#
+
+set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout"
+mode $exit {
+    bindsym --to-code {
+        s exec systemctl suspend, mode "default"
+        p exec systemctl poweroff
+        r exec systemctl reboot
+        l exec swaymsg exit
+
+        Return mode "default"
+        Escape mode "default"
+        $mod+x mode "default"
+    }
+}
+
+bindsym --to-code $mod+x mode $exit
+
+# Pop-Up Terminal
+for_window [title="Popup Shell"] floating enable
+for_window [title="Popup Shell"] resize set 1280 720
+bindsym $mod+Shift+Return exec footclient -T "Popup Shell" distrobox enter arch -- /usr/bin/fish 
+
+# Launcher
+for_window [app_id="ulauncher"] border none
+
+# Firefox
+bindsym $mod+p exec flatpak run org.mozilla.firefox
+for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [title="Firefox — Sharing Indicator"] move scratchpad
+
+# Silverblue Terminal
+bindsym $mod+mod1+Return exec footclient
+
+# Element
+for_window [app_id=Element] floating enable
+for_window [app_id=Element] resize set 1280 720
+for_window [app_id=Element] move scratchpad
+
+# Best to just let Steam be floating
+for_window [class="Steam"] floating enable
+
+# Theming
+set $gnome-schema org.gnome.desktop.interface
+
+exec_always {
+    gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
+    gsettings set $gnome-schema icon-theme 'Adwaita'
+}
+
+xwayland enabled
+
+default_border pixel 3
+gaps inner 10
+
+# class                 border  bground text    indicator child_border
+client.focused          #285577 #285577 #FFFFFF #2E9EF4   #285577
+client.focused_inactive #5F676A #5F676A #FFFFFF #484E50   #5F676A
+client.unfocused        #222222 #222222 #888888 #292D2E   #222222
+client.urgent           #2F343A #900000 #FFFFFF #900000   #900000
+client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
+
+focus_follows_mouse yes
+
+# Startup Apps
+exec .config/sway/autotiling
+
+# Env vars
+exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+exec ~/.config/sway/home-screen
+
+include /etc/sway/config.d/*
