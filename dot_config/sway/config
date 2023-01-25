@@ -16,13 +16,6 @@ set $term footclient distrobox enter arch -- /usr/bin/fish
 # Menu
 set $menu wofi -a -b -I -modi drun --show drun
 
-exec swayidle -w \
-         timeout 600 'swaymsg "output * dpms off"' \
-                 resume 'swaymsg "output * dpms on"' \
-         timeout 3600 'systemctl suspend' \
-                 after-resume 'swaymsg "output * dpms on" && sleep 8s && swaymsg reload'
-
-
 ### Output configuration
 output * bg $HOME/.config/sway/f37-01-night.png fill
 
@@ -342,6 +335,5 @@ exec .config/sway/autotiling
 # Env vars
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
-exec ~/.config/sway/home-screen
-
 include /etc/sway/config.d/*
+include ~/.config/sway/configs-enabled/*
