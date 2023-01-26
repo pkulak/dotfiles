@@ -2,6 +2,16 @@
 #
 # Set this as Exec in /usr/local/share/wayland-sessions/sway.desktop
 
+# We can't be sure that the virtual GPU is compatible with Sway.
+if systemd-detect-virt --quiet --vm; then
+    # https://github.com/swaywm/sway/issues/6581
+    export WLR_NO_HARDWARE_CURSORS=1
+    # Fallback to the pixman renderer as it has a higher chance to work
+    # and will be faster than llvmpipe anyways.
+    # See https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/2871
+    export WLR_RENDERER=pixman
+fi
+
 export TERMINAL="foot"
 export BROWSER="flatpak run org.mozilla.firefox"
 export EDITOR="nvim"
@@ -18,4 +28,4 @@ export MOZ_ENABLE_WAYLAND=1
 export MOZ_WEBRENDER=1
 export MOZ_ACCELERATED=1
 
-sway
+exec systemd-cat -- /usr/bin/sway
