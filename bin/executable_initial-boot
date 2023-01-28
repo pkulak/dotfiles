@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+ # Set up the layers
+rpm-ostree override remove firefox firefox-langpacks
+rpm-ostree install distrobox mako playerctl sway swayidle waybar wlsunset wofi python3-i3ipc light wireguard-tools`
+
+# Start some services
+sudo sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf
+sudo systemctl enable rpm-ostreed-automatic.timer
+sudo systemctl enable rpm-ostree-countme.timer
+
+# Flatpaks
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flathubrepo
+flatpak remote-modify --enable flathub
+flatpak remote-delete fedora
+
+flatpak install flathub org.pulseaudio.pavucontrol org.mozilla.firefox org.gimp.GIMP im.riot.Riot com.google.Chrome com.github.tchx84.Flatseal md.obsidian.Obsidian
+
+sudo flatpak override --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 --env=MOZ_WEBRENDER=1 --env=MOZ_ACCELERATED=1 org.mozilla.firefox

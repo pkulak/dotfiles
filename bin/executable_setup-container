@@ -1,0 +1,19 @@
+#!/usr/bin/bash
+
+# distrobox create --image archlinux:latest --name arch
+# distrobox enter arch
+#
+# Then run this file:
+
+echo "en_US.UTF-8 UTF-8" | sudo tee /etc/locale.gen
+sudo locale-gen
+echo "LANG=en_US.UTF-8" | sudo tee /etc/locale.conf
+
+sudo pacman -Syy --needed git base-devel
+
+cd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+
+yay -S bc dragon-drop exa fish gocryptfs htop httpie imagemagick imv lf mpv neovim neovim-symlinks sublime-merge swayimg unzip xorg-xeyes yt-dlp zathura-pdf-mupdf sublime-music openssh wl-clipboard wf-recorder slurp
