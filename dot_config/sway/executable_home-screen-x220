@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+swaymsg "workspace 1"
+swaymsg "exec firefox"
+swaymsg "exec footclient fish"
+sleep 4s
+swaymsg "splitv"
+swaymsg "layout tabbed"
+swaymsg "resize grow width 20ppt"
