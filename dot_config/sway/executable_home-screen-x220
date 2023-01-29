@@ -1,8 +1,8 @@
-#!/usr/bin/env bash
-swaymsg "workspace 1"
-swaymsg "exec firefox"
-swaymsg "exec footclient fish"
-sleep 4s
+#!/bin/bash
+swaymsg "exec flatpak run org.mozilla.firefox"
+swaymsg "exec footclient distrobox enter arch -- /usr/bin/fish"
+swaymsg "exec flatpak run im.riot.Riot --enable-features=UseOzonePlatform --ozone-platform=wayland"
+sleep 5s
 swaymsg "splitv"
 swaymsg "layout tabbed"
-swaymsg "resize grow width 20ppt"
+swaymsg "resize grow width 35ppt"
