@@ -19,5 +19,5 @@ flatpak install flathub org.pulseaudio.pavucontrol org.mozilla.firefox org.gimp.
 sudo flatpak override --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 --env=MOZ_WEBRENDER=1 --env=MOZ_ACCELERATED=1 org.mozilla.firefox
 
 # Set sway in GDM
-sudo cp $HOME/.config/sway/sway.deskop /usr/local/share/wayland-sessions/
+sudo cp $HOME/.config/sway/sway.desktop /usr/local/share/wayland-sessions/
 
