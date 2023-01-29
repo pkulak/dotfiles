@@ -14,7 +14,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 flatpak remote-modify --enable flathub
 flatpak remote-delete fedora
 
-flatpak install flathub org.pulseaudio.pavucontrol org.mozilla.firefox org.gimp.GIMP im.riot.Riot com.google.Chrome com.github.tchx84.Flatseal md.obsidian.Obsidian
+flatpak install flathub org.pulseaudio.pavucontrol org.gtk.Gtk3theme.Adwaita-dark org.mozilla.firefox org.gimp.GIMP im.riot.Riot com.google.Chrome com.github.tchx84.Flatseal md.obsidian.Obsidian
 
 sudo flatpak override --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 --env=MOZ_WEBRENDER=1 --env=MOZ_ACCELERATED=1 org.mozilla.firefox
 
