@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob
+list=($HOME/.var/app/org.mozilla.firefox/.mozilla/firefox/*.default-release)
+cd "${list[0]}"
+mkdir chrome
+cd chrome
+
+cat >userChrome.css <<EOL
+/* hides the native tabs */
+#TabsToolbar {
+  visibility: collapse;
+}
+EOL
