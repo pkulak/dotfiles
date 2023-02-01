@@ -5,6 +5,7 @@ import sys
 import signal
 import gi
 import json
+import time
 gi.require_version('Playerctl', '2.0')
 from gi.repository import Playerctl, GLib
 
@@ -31,11 +32,7 @@ def on_metadata(player, metadata, manager):
     logger.info('Received new metadata')
     track_info = ''
 
-    if player.props.player_name == 'spotify' and \
-            'mpris:trackid' in metadata.keys() and \
-            ':ad:' in player.props.metadata['mpris:trackid']:
-        track_info = 'AD PLAYING'
-    elif player.get_artist() != '' and player.get_title() != '':
+    if player.get_artist() != '' and player.get_title() != '':
         track_info = '{artist} - {title}'.format(artist=player.get_artist(),
                                                  title=player.get_title())
     else:
@@ -43,6 +40,7 @@ def on_metadata(player, metadata, manager):
 
     if player.props.status != 'Playing' and track_info:
         track_info = '    ' + track_info
+
     write_output(track_info, player)
 
 
@@ -54,8 +52,11 @@ def on_player_appeared(manager, player, selected_player=None):
 
 
 def on_player_vanished(manager, player):
-    logger.info('Player has vanished')
-    sys.stdout.write('\n')
+    output = {'text': '',
+              'class': 'custom-none',
+              'alt': 'none'}
+
+    sys.stdout.write(json.dumps(output) + '\n')
     sys.stdout.flush()
 
 
@@ -65,6 +66,7 @@ def init_player(manager, name):
     player.connect('playback-status', on_play, manager)
     player.connect('metadata', on_metadata, manager)
     manager.manage_player(player)
+    time.sleep(1)
     on_metadata(player, player.props.metadata, manager)
 
 

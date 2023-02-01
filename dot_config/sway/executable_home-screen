@@ -10,4 +10,3 @@ swaymsg "workspace 9"
 swaymsg "exec distrobox-enter -n arch -- sublime-music"
 sleep 3s 
 swaymsg "workspace 1"
-swaymsg reload
