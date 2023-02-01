@@ -1,0 +1,10 @@
+directory: ~/Music
+plugins: fetchart replaygain
+
+replaygain:
+  backend: ffmpeg
+
+paths:
+  default: $albumartist/$album%aunique{}/$track - $title
+  singleton: Non-Album/$artist/$title
+  comp: Compilations/$album%aunique{}/$track - $title
