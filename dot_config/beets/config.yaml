@@ -1,4 +1,4 @@
-directory: ~/Music
+directory: /mnt/music
 plugins: fetchart replaygain
 
 replaygain:
