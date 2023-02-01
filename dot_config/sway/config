@@ -179,7 +179,7 @@ bindsym F12 mode "passthrough"
 # All my stuff below here
 #########################
 
-font Cantarell 11
+font Ubuntu 11
 
 bar {
     swaybar_command waybar
