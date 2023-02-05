@@ -263,25 +263,9 @@ for_window [app_id="smerge"] border pixel 7
 # Volume Control
 for_window [app_id="pavucontrol"] floating enable
 
-#
-# exit mode
-#
-
-set $exit "exit: [s]leep, [p]oweroff, [r]eboot, [l]ogout"
-mode $exit {
-    bindsym --to-code {
-        s exec systemctl suspend, mode "default"
-        p exec systemctl poweroff
-        r exec systemctl reboot
-        l exec swaymsg exit
-
-        Return mode "default"
-        Escape mode "default"
-        $mod+x mode "default"
-    }
-}
-
-bindsym --to-code $mod+x mode $exit
+# Wofi scripts
+bindsym $mod+x exec .config/sway/wofi-power
+bindsym $mod+Shift+e exec .config/sway/wofi-emoji
 
 # Pop-Up Terminal
 for_window [title="Popup Shell"] floating enable

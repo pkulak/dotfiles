@@ -2,7 +2,7 @@
 
  # Set up the layers
 rpm-ostree override remove firefox firefox-langpacks
-rpm-ostree install distrobox mako playerctl sway swayidle waybar wlsunset wofi python3-i3ipc light wireguard-tools
+rpm-ostree install distrobox mako playerctl sway swayidle waybar wlsunset wofi python3-i3ipc light wireguard-tools wl-clipboard
 
 # Start some services
 sudo sed -i 's/#AutomaticUpdatePolicy.*/AutomaticUpdatePolicy=stage/' /etc/rpm-ostreed.conf
