@@ -1,7 +1,7 @@
-# Pop this in /usr/local/share/wayland-sessions/sway.desktop
+# Pop this in /usr/local/share/wayland-sessions/sway-custom.desktop
 
 [Desktop Entry]
-Name=Sway
+Name=Sway (Custom Launcher)
 Comment=An i3-compatible Wayland compositor
 Exec=/var/home/phil/bin/sway-run
 Type=Application
