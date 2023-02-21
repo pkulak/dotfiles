@@ -18,10 +18,4 @@ alias dr 'dragon-drop -a -x'
 alias mntvevo 'gocryptfs ~/Drive/crypt/vevo ~/vevo/Notes'
 alias mntprivate 'gocryptfs ~/Drive/crypt/private ~/private'
 
-alias podman 'distrobox-host-exec podman'
-alias flatpak 'distrobox-host-exec flatpak'
-alias snapper 'distrobox-host-exec snapper'
-alias rpm-ostree 'distrobox-host-exec rpm-ostree'
-
 set PATH $PATH $HOME/bin $HOME/.cargo/bin $HOME/dotfiles/bin $HOME/vevo/rest/bin $HOME/.local/bin
-setenv EDITOR vim
