@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+flatpak run com.sublimemerge.App .
