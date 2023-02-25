@@ -5,7 +5,7 @@ alias ls 'ls -tr --color=auto'
 alias .. 'cd ..'
 alias ... 'cd ../..'
 alias md 'mkdir -p'
-alias sm smerge
+alias sm 'distrobox-host-exec smerge'
 alias ssh 'TERM=xterm-256color command ssh'
 alias c clear
 alias za zathura
