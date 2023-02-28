@@ -11,7 +11,7 @@ set $right l
 
 # Your preferred terminal emulator
 exec_always foot --server &
-set $term footclient distrobox enter alpine -- /usr/bin/fish
+set $term footclient distrobox enter arch -- /usr/bin/fish
 
 # Menu
 set $menu wofi -a -b -I -modi drun --show drun
@@ -270,7 +270,7 @@ bindsym $mod+Shift+e exec .config/sway/wofi-emoji
 # Pop-Up Terminal
 for_window [title="Popup Shell"] floating enable
 for_window [title="Popup Shell"] resize set 1280 720
-bindsym $mod+Shift+Return exec footclient -T "Popup Shell" distrobox enter alpine -- /usr/bin/fish 
+bindsym $mod+Shift+Return exec footclient -T "Popup Shell" distrobox enter arch -- /usr/bin/fish 
 
 # Launcher
 for_window [app_id="ulauncher"] border none
