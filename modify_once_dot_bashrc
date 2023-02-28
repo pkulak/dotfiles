@@ -1,4 +1,0 @@
-{{- /* chezmoi:modify-template */ -}}
-{{- .chezmoi.stdin }}
-alias vim=vi
-
