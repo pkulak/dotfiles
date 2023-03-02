@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+sb="https://raw.githubusercontent.com/po5/mpv_sponsorblock/master"
+
+pushd ~
+
+mkdir -p .config/mpv/scripts/sponsorblock_shared
+
+curl "$sb/sponsorblock.lua" > .config/mpv/scripts/sponsorblock.lua
+curl "$sb/sponsorblock_shared/main.lua" > .config/mpv/scripts/sponsorblock_shared/main.lua
+curl "$sb/sponsorblock_shared/sponsorblock.py" > .config/mpv/scripts/sponsorblock_shared/sponsorblock.py
+
+popd
