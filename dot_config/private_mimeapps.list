@@ -5,9 +5,9 @@ x-scheme-handler/https=org.mozilla.firefox.desktop
 x-scheme-handler/about=org.mozilla.firefox.desktop
 x-scheme-handler/unknown=org.mozilla.firefox.desktop
 
-image/gif=imv.desktop
-image/jpeg=imv.desktop
-image/png=imv.desktop
+image/gif=swayimg.desktop
+image/jpeg=swayimg.desktop
+image/png=swayimg.desktop
 
 video/mp4=mpv.desktop
 video/quicktime=mpv.desktop
