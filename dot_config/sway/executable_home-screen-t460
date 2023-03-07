@@ -2,7 +2,7 @@
 swaymsg "workspace 1"
 swaymsg "exec footclient distrobox enter arch -- /usr/bin/fish"
 swaymsg "exec flatpak run org.mozilla.firefox"
-swaymsg "exec flatpak run im.riot.Riot --enable-features=UseOzonePlatform --ozone-platform=wayland"
+swaymsg "exec flatpak run io.github.NhekoReborn.Nheko"
 sleep 5s
 swaymsg "splitv"
 swaymsg "layout tabbed"

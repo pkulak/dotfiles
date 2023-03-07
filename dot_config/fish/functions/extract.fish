@@ -1,3 +1,3 @@
 function extract --wraps tar
-    tar -xzf $argv
+    tar -xvf $argv
 end

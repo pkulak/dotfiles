@@ -7,7 +7,7 @@ flatpak remote-delete fedora
 flatpak install flathub \
   com.github.tchx84.Flatseal \
   com.google.Chrome \
-  im.riot.Riot \
+  io.github.NhekoReborn.Nheko \
   org.gimp.GIMP \
   org.gtk.Gtk3theme.Adwaita-dark \
   org.mozilla.firefox \

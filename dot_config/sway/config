@@ -283,10 +283,10 @@ for_window [title="Firefox — Sharing Indicator"] move scratchpad
 # Silverblue Terminal
 bindsym $mod+mod1+Return exec footclient
 
-# Element
-for_window [app_id=Element] floating enable
-for_window [app_id=Element] resize set 1280 720
-for_window [app_id=Element] move scratchpad
+# Nheko
+for_window [app_id=io.github.NhekoReborn.Nheko] floating enable
+for_window [app_id=io.github.NhekoReborn.Nheko] resize set 1280 720
+for_window [app_id=io.github.NhekoReborn.Nheko] move scratchpad
 
 # Best to just let Steam be floating
 for_window [class="Steam"] floating enable

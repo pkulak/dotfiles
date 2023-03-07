@@ -103,6 +103,7 @@ cmd zip ${{
 }}
 
 cmd dragon %dragon-drop -a -x $fx
+cmd copy-path &wl-copy $fx
 
 # Bindings
 # Remove some defaults
@@ -127,5 +128,6 @@ map r rename
 
 # Some fun stuff
 map dr dragon
+map c copy-path
 
 set previewer pistol
