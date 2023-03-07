@@ -1,0 +1,210 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-left": [
+        "idle_inhibitor",
+        "cpu",
+        "memory",
+        "disk",
+        "sway/mode",
+        "custom/media"
+    ],
+    "modules-center": [
+        "sway/workspaces"
+    ],
+    "modules-right": [
+        "custom/weather",
+        "pulseaudio#sink",
+        "backlight",
+        "battery",
+        "clock",
+        "tray"
+    ],
+    "disk": {
+        "interval": 30,
+        "format": "{percentage_used}% <span>\uf0c7</span> "
+    },
+    "bluetooth": {
+        "format": "<b>{icon}</b>",
+        "format-alt": "{status} {icon}",
+        "interval": 30,
+        "format-icons": {
+            "enabled": "\uf293",
+            "disabled": "\uf294"
+        },
+        "tooltip-format": "{}"
+    },
+    "sway/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": false,
+        "format": "{name}",
+        "format-icons": {
+            "urgent": "\uf06a",
+            "focused": "\uf192",
+            "default": "\uf111"
+        }
+    },
+    "sway/mode": {
+        "format": "{}"
+    },
+    "sway/language": {
+        "format": "{}",
+        "max-length": 50
+    },
+    "mpd": {
+        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) \u2e28{songPosition}|{queueLength}\u2e29 \uf001",
+        "format-disconnected": "Disconnected \uf001",
+        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped \uf001",
+        "unknown-tag": "N/A",
+        "interval": 2,
+        "consume-icons": {
+            "on": "\uf0c4 "
+        },
+        "random-icons": {
+            "off": "<span color=\"#f53c3c\">\uf074</span> ",
+            "on": "\uf074 "
+        },
+        "repeat-icons": {
+            "on": "\uf01e "
+        },
+        "single-icons": {
+            "on": "\uf01e1 "
+        },
+        "state-icons": {
+            "paused": "\uf04c",
+            "playing": "\uf04b"
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "\uf06e",
+            "deactivated": "\uf070"
+        },
+        "on-update": "/tmp/k.sh"
+    },
+    "tray": {
+        "spacing": 10
+    },
+    "clock": {
+        "format": "{:%a %b %e %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+        "format": "{usage}% \uf2db",
+        "tooltip": false
+    },
+    "memory": {
+        "format": "{}% \uf0c9"
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}\u00b0C {icon}",
+        "format-icons": [
+            "\uf76b",
+            "\uf2c9",
+            "\uf769"
+        ]
+    },
+    "backlight": {
+        "format": "{percent}% {icon}",
+        "format-icons": [
+            "\uf185"
+        ],
+        "on-click": "dex /usr/share/applications/clightc.desktop"
+    },
+    "battery": {
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% \uf5e7",
+        "format-plugged": "{capacity}% \uf1e6",
+        "format-alt": "{time} {icon}",
+        "format-icons": [
+            "\uf244",
+            "\uf243",
+            "\uf242",
+            "\uf241",
+            "\uf240"
+        ]
+    },
+    "battery#bat2": {
+        "bat": "BAT2"
+    },
+    "network": {
+        "format-wifi": "{signalStrength}% \uf1eb",
+        "format-ethernet": "\uf796",
+        "format-linked": "{ifname} (No IP) \uf796",
+        "format-disconnected": "Disconnected \u26a0",
+        "format-alt": "{essid}: {ipaddr}/{cidr}"
+    },
+    "pulseaudio#sink": {
+        "format": "{volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon}\uf294",
+        "format-bluetooth-muted": "\uf6a9 {icon}\uf294",
+        "format-muted": "0% \uf6a9 ",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "\uf025",
+            "hands-free": "\uf590",
+            "headset": "\uf590",
+            "phone": "\uf095",
+            "portable": "\uf095",
+            "car": "\uf1b9",
+            "default": [
+                "\uf026",
+                "\uf027",
+                "\uf028"
+            ]
+        },
+        "on-click": "flatpak run org.pulseaudio.pavucontrol"
+    },
+    "pulseaudio#source": {
+        "format": "{format_source}",
+        "format-bluetooth": "{format_source}",
+        "format-bluetooth-muted": "{format_source}",
+        "format-muted": "{format_source}",
+        "format-source": "{volume}% \uf130",
+        "format-source-muted": "0% \uf131",
+        "format-icons": {
+            "headphone": "\uf025",
+            "hands-free": "\uf590",
+            "headset": "\uf590",
+            "phone": "\uf095",
+            "portable": "\uf095",
+            "car": "\uf1b9",
+            "default": [
+                "\uf026",
+                "\uf027",
+                "\uf028"
+            ]
+        },
+        "on-click": "flatpak run org.pulseaudio.pavucontrol"
+    },
+    "custom/media": {
+        "format": "{icon} {}",
+        "return-type": "json",
+        "max-length": 40,
+        "escape": true,
+        "exec": "$HOME/.config/waybar/modules/mediaplayer.py 2> /dev/null"
+    },
+    "custom/packages": {
+        "interval": 86400,
+        "exec": "checkupdates | wc -l",
+        "format": "{} \uf0ad"
+    },
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 900,
+        "exec": "$HOME/.config/waybar/modules/weather.py",
+        "return-type": "json"
+    }
+}
