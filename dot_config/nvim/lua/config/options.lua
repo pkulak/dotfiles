@@ -13,3 +13,8 @@ vim.api.nvim_set_keymap(
   ":%!python -c 'import sys;import xml.dom.minidom;s=sys.stdin.read();print(xml.dom.minidom.parseString(s).toprettyxml())'<CR>:set syntax=xml<CR>",
   options
 )
+
+-- and some general options
+vim.opt.timeoutlen = 1000
+vim.opt.colorcolumn = "120"
+vim.opt.clipboard = "unnamed"
