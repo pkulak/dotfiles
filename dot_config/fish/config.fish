@@ -15,7 +15,4 @@ alias bc 'bc -lq'
 alias rs 'rsync -avH --info=progress2'
 alias dr 'dragon-drop -a -x'
 
-alias mntvevo 'gocryptfs ~/Drive/crypt/vevo ~/vevo/Notes'
-alias mntprivate 'gocryptfs ~/Drive/crypt/private ~/private'
-
 set PATH $PATH $HOME/bin $HOME/.cargo/bin $HOME/dotfiles/bin $HOME/vevo/rest/bin $HOME/.local/bin

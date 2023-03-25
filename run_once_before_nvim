@@ -3,3 +3,5 @@
 rm -rf .local/share/nvim
 rm -rf .local/state/nvim
 rm -rf .cache/nvim
+
+git clone git@github.com:pkulak/notes.git ~/notes
