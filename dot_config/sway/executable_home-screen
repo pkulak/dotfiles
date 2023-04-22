@@ -1,7 +1,6 @@
 #!/bin/bash
 swaymsg "exec flatpak run org.mozilla.firefox"
-swaymsg "exec footclient distrobox enter arch -- /usr/bin/fish"
-swaymsg "exec flatpak run io.github.NhekoReborn.Nheko"
+swaymsg "exec distrobox enter arch -- /usr/bin/matui"
 sleep 3s
 swaymsg "splitv"
 swaymsg "layout tabbed"
