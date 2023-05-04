@@ -7,11 +7,7 @@ flatpak remote-delete fedora
 flatpak install flathub \
   com.github.tchx84.Flatseal \
   com.google.Chrome \
-  io.github.NhekoReborn.Nheko \
   org.gimp.GIMP \
   org.gtk.Gtk3theme.Adwaita-dark \
-  org.mozilla.firefox \
   org.pulseaudio.pavucontrol
-
-sudo flatpak override --socket=wayland --env=MOZ_ENABLE_WAYLAND=1 --env=MOZ_WEBRENDER=1 --env=MOZ_ACCELERATED=1 org.mozilla.firefox
 

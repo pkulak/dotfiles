@@ -275,7 +275,7 @@ bindsym $mod+Shift+Return exec alacritty --class "Popup Shell"
 for_window [app_id="ulauncher"] border none
 
 # Firefox
-bindsym $mod+p exec flatpak run org.mozilla.firefox
+bindsym $mod+p exec firefox
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [title="Firefox — Sharing Indicator"] move scratchpad
 

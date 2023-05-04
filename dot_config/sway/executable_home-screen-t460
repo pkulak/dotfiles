@@ -1,8 +1,7 @@
 #!/bin/bash
 swaymsg "workspace 1"
 swaymsg "exec footclient distrobox enter arch -- /usr/bin/fish"
-swaymsg "exec flatpak run org.mozilla.firefox"
-swaymsg "exec flatpak run io.github.NhekoReborn.Nheko"
+swaymsg "exec firefox"
 sleep 5s
 swaymsg "splitv"
 swaymsg "layout tabbed"

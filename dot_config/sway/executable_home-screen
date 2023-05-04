@@ -1,5 +1,5 @@
 #!/bin/bash
-swaymsg "exec flatpak run org.mozilla.firefox"
+swaymsg "exec firefox"
 swaymsg "exec distrobox enter arch -- /usr/bin/matui"
 sleep 3s
 swaymsg "splitv"

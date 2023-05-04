@@ -1,3 +1,2 @@
 #!/bin/bash
-swaymsg "exec flatpak run org.mozilla.firefox"
-swaymsg "exec flatpak run io.github.NhekoReborn.Nheko"
+swaymsg "exec firefox"
