@@ -1,9 +1,3 @@
-shell:
-  program: /usr/bin/bash
-  args:
-    - -c
-    - "distrobox enter arch -- /usr/bin/fish"
-
 key_bindings:
   - { key: V, mods: Control, action: Paste }
   - { key: C, mods: Control, action: Copy }

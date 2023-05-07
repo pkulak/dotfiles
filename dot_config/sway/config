@@ -267,9 +267,9 @@ bindsym $mod+x exec .config/sway/wofi-power
 bindsym $mod+Shift+e exec .config/sway/wofi-emoji
 
 # Pop-Up Terminal
-for_window [title="Popup Shell"] floating enable
-for_window [title="Popup Shell"] resize set 1280 720
-bindsym $mod+Shift+Return exec alacritty --class "Popup Shell"  
+for_window [app_id="popup_shell"] floating enable
+for_window [app_id="popup_shell"] resize set 1280 720
+bindsym $mod+Shift+Return exec alacritty --class popup_shell -e distrobox enter arch -- /usr/bin/fish
 
 # Launcher
 for_window [app_id="ulauncher"] border none
