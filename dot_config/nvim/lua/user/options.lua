@@ -22,6 +22,7 @@ return {
   },
   o = {
     guifont = "Fantasque Sans Mono:h14",
+    undofile = true,
   }
 }
 -- If you need more control, you can use the function()...end notation

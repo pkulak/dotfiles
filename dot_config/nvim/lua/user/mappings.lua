@@ -11,6 +11,7 @@ return {
       ":%!python -c 'import sys;import xml.dom.minidom;s=sys.stdin.read();print(xml.dom.minidom.parseString(s).toprettyxml())'<CR>:set syntax=xml<CR>",
       desc = "Format XML"
     },
+    ["gb"] = { ":buffer #<cr>", desc = "Go to last buffer" },
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
     ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
@@ -23,8 +24,8 @@ return {
     -- tables with the `name` key will be registered with which-key if it's installed
     -- this is useful for naming menus
     ["<leader>b"] = { name = "Buffers" },
-    -- quick save
-    -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    -- save all
+    ["<leader>w"] = { ":wa<cr>", desc = "Save All" },  -- change description but the same command
   },
   t = {
     -- setting a mapping to false will disable it
