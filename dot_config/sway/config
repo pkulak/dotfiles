@@ -312,6 +312,7 @@ focus_follows_mouse yes
 
 # Startup Apps
 exec .config/sway/autotiling
+exec distrobox enter arch -- buzz
 
 # Env vars
 exec systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
