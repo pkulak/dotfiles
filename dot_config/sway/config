@@ -259,6 +259,11 @@ for_window [app_id="smerge"] floating enable
 for_window [app_id="smerge"] resize set 1440 1024
 for_window [app_id="smerge"] border pixel 7
 
+# Strawberry
+for_window [app_id="org.strawberrymusicplayer.strawberry"] floating enable
+for_window [app_id="org.strawberrymusicplayer.strawberry"] resize set 1440 1024
+for_window [app_id="org.strawberrymusicplayer.strawberry"] border pixel 7
+
 # Volume Control
 for_window [app_id="pavucontrol"] floating enable
 
