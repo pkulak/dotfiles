@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flathubrepo
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 flatpak remote-modify --enable flathub
 flatpak remote-delete fedora
 
