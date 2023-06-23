@@ -31,6 +31,7 @@ EMPTY_PRE_POST_CLEANUP="yes"
 EMPTY_PRE_POST_MIN_AGE="1800"
 EOF
 
+mkdir /etc/conf.d
 echo "SNAPPER_CONFIGS=\"home\"" > /etc/conf.d/snapper
 
 systemctl enable snapper-timeline.timer
