@@ -10,7 +10,7 @@ set $up k
 set $right l
 
 # Your preferred terminal emulator
-set $term alacritty -e distrobox enter arch -- /usr/bin/fish
+set $term alacritty -e fish
 
 # Menu
 set $menu wofi -a -b -I -modi drun --show drun
@@ -274,7 +274,7 @@ bindsym $mod+Shift+e exec .config/sway/wofi-emoji
 # Pop-Up Terminal
 for_window [app_id="popup_shell"] floating enable
 for_window [app_id="popup_shell"] resize set 1280 720
-bindsym $mod+Shift+Return exec alacritty --class popup_shell -e distrobox enter arch -- /usr/bin/fish
+bindsym $mod+Shift+Return exec alacritty --class popup_shell -e fish
 
 # Launcher
 for_window [app_id="ulauncher"] border none
@@ -283,9 +283,6 @@ for_window [app_id="ulauncher"] border none
 bindsym $mod+p exec firefox
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [title="Firefox — Sharing Indicator"] move scratchpad
-
-# Silverblue Terminal
-bindsym $mod+mod1+Return exec alacritty
 
 # Best to just let Steam be floating
 for_window [class="Steam"] floating enable
