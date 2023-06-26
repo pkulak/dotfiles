@@ -36,7 +36,9 @@
 
     services.openssh = {
       enable = true;
-      passwordAuthentication = true;
+      settings = {
+        PasswordAuthentication = true;
+      }
     };
 
     fonts = {
