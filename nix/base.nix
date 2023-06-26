@@ -39,7 +39,7 @@
       enable = true;
       settings = {
         PasswordAuthentication = true;
-      }
+      };
     };
 
     fonts = {
