@@ -26,6 +26,7 @@
       mpv
       ripgrep
       sublime-merge
+      sublime-music
       xdragon
       yt-dlp
     ];
