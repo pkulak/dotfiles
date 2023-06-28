@@ -7,6 +7,5 @@ flatpak install flathub \
   com.google.Chrome \
   org.gimp.GIMP \
   org.gtk.Gtk3theme.Adwaita-dark \
-  org.pulseaudio.pavucontrol \
-  org.strawberrymusicplayer.strawberry
+  org.pulseaudio.pavucontrol 
 
