@@ -1,11 +1,6 @@
 { config, pkgs, ... }:
 
 let
-  sway-python-packages = ps: with ps; [
-    i3ipc
-    requests-cache
-  ];
-
   start-sway = pkgs.writeTextFile {
     name = "start-sway";
     destination = "/bin/start-sway";
@@ -88,7 +83,6 @@ in
       light
       mako
       playerctl
-      (python3.withPackages sway-python-packages)
       slurp
       start-sway
       swayidle

@@ -1,4 +1,6 @@
-#!/usr/bin/env python3
+#! /usr/bin/env nix-shell
+#! nix-shell -i python3 -p python311Packages.pygobject3 gobject-introspection playerctl
+
 import argparse
 import logging
 import sys
