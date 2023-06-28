@@ -1,4 +1,4 @@
-#! /usr/bin/env nix-shell
+#! /usr/bin/env cached-nix-shell
 #! nix-shell -i python3 -p python311Packages.requests python311Packages.requests-cache
 
 import os

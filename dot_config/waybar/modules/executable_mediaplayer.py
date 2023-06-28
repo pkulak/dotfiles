@@ -1,4 +1,4 @@
-#! /usr/bin/env nix-shell
+#! /usr/bin/env cached-nix-shell
 #! nix-shell -i python3 -p python311Packages.pygobject3 gobject-introspection playerctl
 
 import argparse

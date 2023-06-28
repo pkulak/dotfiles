@@ -15,8 +15,10 @@
     environment.systemPackages = with pkgs; [
       age
       bc
+      cached-nix-shell
       exa
       chezmoi
+      distrobox
       ffmpeg
       firefox
       git
@@ -27,6 +29,7 @@
       imv
       lf
       mpv
+      podman
       ripgrep
       sublime-merge
       sublime-music
@@ -44,6 +47,8 @@
         PasswordAuthentication = true;
       };
     };
+
+    virtualisation.containers.enable = true;
 
     fonts = {
       enableDefaultFonts = true;
