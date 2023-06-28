@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 shopt -s nullglob
-list=($HOME/.mozilla/firefox/*.default-release)
+list=($HOME/.mozilla/firefox/*.default)
 cd "${list[0]}"
 mkdir chrome
 cd chrome
