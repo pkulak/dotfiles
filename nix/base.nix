@@ -2,9 +2,6 @@
 
 {
   imports = [ 
-    # ./buzz.nix
-    ./matui.nix
-    ./pgen.nix
     ./snapper.nix
     ./smb.nix
     ./sway.nix
