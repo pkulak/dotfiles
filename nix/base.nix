@@ -5,7 +5,6 @@
     ./snapper.nix
     ./smb.nix
     ./sway.nix
-    ./vim.nix
   ];
 
   config = {
@@ -45,6 +44,13 @@
     };
 
     virtualisation.containers.enable = true;
+
+    programs.neovim = {
+      enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+    };
 
     fonts = {
       enableDefaultFonts = true;
