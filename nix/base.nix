@@ -26,6 +26,7 @@
       imv
       lf
       mpv
+      networkmanagerapplet
       podman
       ripgrep
       sublime-merge
