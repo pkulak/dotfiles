@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 sudo mkdir -p /var/mnt/usbstick
 sudo mount -o uid=phil,gid=phil /dev/sdb1 /var/mnt/usbstick
