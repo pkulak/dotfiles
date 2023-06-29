@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+distrobox create -i ghcr.io/pkulak/nixkit -n arch
