@@ -20,8 +20,6 @@
       firefox
       git
       glib
-      gnome.adwaita-icon-theme
-      gnome.gnome-themes-extra
       gocryptfs
       imv
       lf
