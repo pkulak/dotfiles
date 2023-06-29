@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+
+DISK=/dev/nvme0n1
+BOOT_PARTITION=/dev/nvme0n1p1
+LUKS_PARTITION=/dev/nvme0n1p2
+LUKS_PASSWORD=mypassword
+LUKS_NAME=nixroot
+BTRFS_NAME=nixroot
+
+#######################################
+# Partition
+#######################################
+
+# part1 EFI boot
+# part2 LUKS
+parted -s $DISK \
+mklabel gpt \
+mkpart ESP fat32 1MiB 513MiB \
+mkpart LUKS ext4 513MiB 100% \
+set 1 esp on \
+set 1 boot on \
+align-check optimal 1
+
+#######################################
+# Disk Encryption
+#######################################
+
+echo -n "${LUKS_PASSWORD}" | cryptsetup --align-payload 8192 --type luks1 --cipher aes-xts-plain64 --hash sha256 luksFormat ${LUKS_PARTITION} -
+echo -n "${LUKS_PASSWORD}" | cryptsetup luksOpen ${LUKS_PARTITION} ${LUKS_NAME} -
+
+#######################################
+# Filesystem
+#######################################
+
+# Format disk
+mkfs.vfat -F32 -n BOOT $BOOT_PARTITION
+mkfs.btrfs /dev/mapper/$LUKS_NAME
+
+# Mount BTRFS partition
+opts_btrfs="ssd,defaults,noatime,nodiratime,compress-force=zstd,autodefrag"
+mount -o $opts_btrfs /dev/mapper/$LUKS_NAME /mnt
+
+# Create our mounts
+btrfs subvolume create /mnt/@root
+btrfs subvolume create /mnt/@home
+btrfs subvolume create /mnt/@nix
+btrfs subvolume create /mnt/@swap
+
+# Disable copy-on-write
+chattr +C /mnt/@swap
+
+umount -R /mnt
+
+mount -o $opts_btrfs,subvol=@root /dev/mapper/$LUKS_NAME /mnt
+
+mkdir -p /mnt/{home,nix,swap}
+mount -o $opts_btrfs,subvol=@home /dev/mapper/$LUKS_NAME /mnt/home
+mount -o $opts_btrfs,subvol=@nix /dev/mapper/$LUKS_NAME /mnt/nix
+mount -o $opts_btrfs,subvol=@swap /dev/mapper/$LUKS_NAME /mnt/swap
+
+btrfs subvolume create /mnt/home/.snapshots
+
+mkdir /mnt/boot
+mount $BOOT_PARTITION /mnt/boot
+
+# Swap file
+cd /mnt/swap
+truncate -s 0 swapfile
+chattr +C swapfile
+dd if=/dev/zero of=swapfile bs=1M count=2048 status=progress
+chmod 600 swapfile
+mkswap swapfile
+swapon swapfile
+
+nixos-generate-config --root /mnt
+curl -o /mnt/etc/nixos/configuration.nix https://public.kulak.us/nix/configuration.nix
+cd /mnt
+nixos-install
