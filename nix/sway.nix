@@ -80,7 +80,6 @@ in
       alacritty
       gnome3.adwaita-icon-theme
       grim
-      light
       mako
       playerctl
       slurp
