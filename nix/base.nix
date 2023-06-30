@@ -34,6 +34,8 @@
 
     services.udev.packages = [ (pkgs.callPackage ./gamedevices.nix pkgs) ];
 
+    system.autoUpgrade.enable = true;
+
     programs.fish.enable = true;
 
     services.flatpak.enable = true;
