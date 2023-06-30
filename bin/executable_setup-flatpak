@@ -6,6 +6,5 @@ flatpak install flathub \
   com.github.tchx84.Flatseal \
   com.google.Chrome \
   org.gimp.GIMP \
-  org.gtk.Gtk3theme.Adwaita-dark \
-  org.pulseaudio.pavucontrol 
+  org.kde.kdenlive
 

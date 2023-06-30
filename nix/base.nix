@@ -24,6 +24,7 @@
       lf
       mpv
       networkmanagerapplet
+      pavucontrol
       podman
       ripgrep
       sublime-merge
