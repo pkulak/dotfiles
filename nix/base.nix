@@ -32,6 +32,8 @@
       yt-dlp
     ];
 
+    services.udev.packages = [ (pkgs.callPackage ./gamedevices.nix pkgs) ];
+
     programs.fish.enable = true;
 
     services.flatpak.enable = true;
