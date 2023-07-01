@@ -34,11 +34,6 @@
     ];
 
     services.udev.packages = [ (pkgs.callPackage ./gamedevices.nix pkgs) ];
-
-    system.autoUpgrade.enable = true;
-
-    programs.fish.enable = true;
-
     services.flatpak.enable = true;
 
     services.openssh = {
@@ -48,7 +43,13 @@
       };
     };
 
+    system.autoUpgrade.enable = true;
+    
+    networking.firewall.checkReversePath = false;
+
     virtualisation.containers.enable = true;
+
+    programs.fish.enable = true;
 
     programs.neovim = {
       enable = true;

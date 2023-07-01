@@ -1,0 +1,22 @@
+exec swayidle -w \
+         timeout 120 'swaymsg "output * dpms off"' \
+                 resume 'swaymsg "output * dpms on"' \
+         timeout 600 'systemctl suspend' \
+                 after-resume 'swaymsg "output * dpms on"'
+
+input "1:1:AT_Translated_Set_2_keyboard" {
+  xkb_options altwin:swap_lalt_lwin,caps:escape
+}
+
+input "1739:0:Synaptics_TM3289-021" {
+  scroll_factor 0.5
+}
+
+bindsym --locked Print exec playerctl play-pause
+
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+exec nm-applet
+
+workspace 1
