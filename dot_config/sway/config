@@ -255,9 +255,9 @@ bindsym --locked XF86AudioNext exec playerctl next
 bindsym --locked XF86AudioPrev exec playerctl previous
 
 # Sublime Merge
-for_window [app_id="smerge"] floating enable
-for_window [app_id="smerge"] resize set 1440 1024
-for_window [app_id="smerge"] border pixel 7
+for_window [app_id="sublime_merge"] floating enable
+for_window [app_id="sublime_merge"] resize set 1440 1024
+for_window [app_id="sublime_merge"] border pixel 7
 
 # Strawberry
 for_window [app_id="org.strawberrymusicplayer.strawberry"] floating enable
@@ -294,6 +294,8 @@ exec_always {
     gsettings set $gnome-schema gtk-theme 'Adwaita-dark'
     gsettings set $gnome-schema icon-theme 'Adwaita'
 }
+
+seat seat0 xcursor_theme Adwaita 24
 
 xwayland enabled
 
