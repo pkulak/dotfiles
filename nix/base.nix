@@ -10,6 +10,7 @@
   config = {
     environment.systemPackages = with pkgs; [
       age
+      btop
       bc
       cached-nix-shell
       exa
@@ -29,11 +30,23 @@
       ripgrep
       sublime-merge
       sublime-music
+      tldr
+      woeusb
       xdragon
       yt-dlp
     ];
 
+    # Udev rule for game controllers
     services.udev.packages = [ (pkgs.callPackage ./gamedevices.nix pkgs) ];
+
+    # Create a timer to auto-upgrade
+    system.autoUpgrade.enable = true;
+
+    # Tame the proxy a bit to let Wireguard work
+    networking.firewall.checkReversePath = false;
+
+    programs.fish.enable = true;
+
     services.flatpak.enable = true;
 
     services.openssh = {
@@ -43,13 +56,7 @@
       };
     };
 
-    system.autoUpgrade.enable = true;
-    
-    networking.firewall.checkReversePath = false;
-
     virtualisation.containers.enable = true;
-
-    programs.fish.enable = true;
 
     programs.neovim = {
       enable = true;
@@ -63,16 +70,16 @@
       fonts = with pkgs; [ 
         cantarell-fonts
         ubuntu_font_family
-	noto-fonts
+	      noto-fonts
         noto-fonts-cjk
         noto-fonts-emoji
       ];
 
       fontconfig = {
         defaultFonts = {
-          serif = [ "Ubuntu" ];
-          sansSerif = [ "Ubuntu" ];
-          monospace = [ "Ubuntu" ];
+          serif = [ "Noto Serif" ];
+          sansSerif = [ "Cantarell" ];
+          monospace = [ "Ubuntu Mono" ];
         };
       };
     };
