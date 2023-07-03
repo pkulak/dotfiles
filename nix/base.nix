@@ -25,6 +25,7 @@
       lf
       mpv
       networkmanagerapplet
+      pamixer
       pavucontrol
       podman
       ripgrep
