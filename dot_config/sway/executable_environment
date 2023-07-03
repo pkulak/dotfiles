@@ -1,6 +1,6 @@
 #!/bin/sh
 
-export TERMINAL="foot"
+export TERMINAL="alacritty"
 export BROWSER="firefox"
 export EDITOR="nvim"
 export VISUAL="nvim"
