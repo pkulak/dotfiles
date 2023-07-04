@@ -244,7 +244,7 @@ bindsym Control+Space exec makoctl dismiss
 bindsym Control+Shift+Space exec makoctl dismiss --all
 
 # Screenshots
-bindsym $mod+Shift+s exec slurp | grim -g - $HOME/Pictures/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+bindsym $mod+Shift+s exec mkdir -p $HOME/Screenshots && slurp | grim -g - $HOME/Screenshots/$(date +'%Y-%m-%d-%H%M%S.png')
 
 # Multimedia
 bindsym --locked XF86AudioRaiseVolume exec pamixer -i 5
