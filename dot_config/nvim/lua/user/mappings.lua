@@ -6,11 +6,8 @@
 return {
   -- first key is the mode
   n = {
-    ["=j"] = { ":%!python -m json.tool<CR>:set syntax=json<CR>", desc = "Format JSON" },
-    ["=x"] = {
-      ":%!python -c 'import sys;import xml.dom.minidom;s=sys.stdin.read();print(xml.dom.minidom.parseString(s).toprettyxml())'<CR>:set syntax=xml<CR>",
-      desc = "Format XML"
-    },
+    ["=j"] = { ":%!nix-shell -p jq --run jq<CR>:set syntax=json<CR>", desc = "Format JSON" },
+    ["=x"] = { ":%!nix-shell -p libxml2 --run \"xmllint -\"<CR>:set syntax=xml<CR>", desc = "Format XML" },
     ["gb"] = { ":buffer #<cr>", desc = "Go to last buffer" },
     -- second key is the lefthand side of the map
     -- mappings seen under group name "Buffer"
