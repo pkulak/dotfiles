@@ -6,8 +6,8 @@
   imports =
     [
       ./hardware-configuration.nix
-      # /home/phil/nix/base.nix
-      # /home/phil/nix/hosts/x260.nix
+      # /home/phil/nix/modules/base.nix
+      # /home/phil/nix/modules/hosts/fry.nix
     ];
 
   boot.loader.grub.enable = true;
@@ -16,7 +16,7 @@
   boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.supportedFilesystems = [ "ntfs" ];
-  # boot.initrd.kernelModules = [ "amdgpu" ]
+  boot.kernelParams = ["rd.luks.options=discard"];
   
   fileSystems = {
     "/".options = [ "compress-force=zstd" "autodefrag" ];
@@ -25,7 +25,6 @@
     "/swap".options = [ "noatime" "nodiratime"];
   };
 
-  networking.hostName = "nixos"; # Define your hostname.
   networking.networkmanager.enable = true;
 
   # Set your time zone.
