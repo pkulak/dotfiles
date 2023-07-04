@@ -15,6 +15,8 @@
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.supportedFilesystems = [ "ntfs" ];
+  # boot.initrd.kernelModules = [ "amdgpu" ]
   
   fileSystems = {
     "/".options = [ "compress-force=zstd" "autodefrag" ];
