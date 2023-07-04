@@ -35,6 +35,7 @@
       woeusb
       xdragon
       yt-dlp
+      (pkgs.callPackage ./matui/default.nix pkgs)
     ];
 
     # Udev rule for game controllers

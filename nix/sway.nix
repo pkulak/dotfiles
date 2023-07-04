@@ -86,6 +86,7 @@ in
       slurp
       start-sway
       swayidle
+      swayimg
       waybar
       wayland
       wlsunset
