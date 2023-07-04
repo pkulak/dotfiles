@@ -1,10 +1,9 @@
 #! /usr/bin/env cached-nix-shell
-#! nix-shell -i python3 -p python311Packages.requests python311Packages.requests-cache
+#! nix-shell -i python3 -p python311Packages.requests
 
 import os
 import json
 import requests
-from requests_cache import CachedSession
 from datetime import timedelta
 
 WEATHER_CODES = {
@@ -58,34 +57,14 @@ WEATHER_CODES = {
     '395': '❄️'
 }
 
-session = CachedSession(
-        "weather_cache",
-        use_cache_dir=True,
-        cache_control=False,
-        expire_after=timedelta(hours=3))
-
 data = {}
 
 try:
-    # grab from the backyard
-    key = open(os.getenv("HOME") + "/.config/waybar/modules/ha_key", "r").read().strip()
+    weather = requests.get("https://wttr.in/portland?format=j1", timeout=5).json()
 
-    ha = requests.get("https://ha.kulak.us/api/states/sensor.fence_motion_sensor_temperature",
-        headers={
-            "Authorization": "Bearer " + key,
-            "Content-Type": "application/json"
-        },
-        timeout=1
-    ).json()
-
-    # and the forecast
-    weather = session.get("https://wttr.in/portland?format=j1", timeout=5).json()
-
-    data['text'] = str(round(float(ha['state']), 1)) + "° " + \
+    data['text'] = weather['current_condition'][0]['temp_F'] + "° " + \
         WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + "    " + \
         f"↑ {weather['weather'][0]['maxtempF']}° ↓ {weather['weather'][1]['mintempF']}° "
-
-    # data['text'] = str(round(float(ha['state']), 1)) + "° "
 except Exception as e:
     data['text'] = "…"
 
