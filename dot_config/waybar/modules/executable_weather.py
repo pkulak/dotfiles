@@ -1,10 +1,8 @@
 #! /usr/bin/env cached-nix-shell
 #! nix-shell -i python3 -p python311Packages.requests
 
-import os
 import json
 import requests
-from datetime import timedelta
 
 WEATHER_CODES = {
     '113': '☀️',

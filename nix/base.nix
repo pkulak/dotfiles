@@ -20,6 +20,7 @@
       firefox
       git
       glib
+      gnome.zenity
       gocryptfs
       imv
       lf
