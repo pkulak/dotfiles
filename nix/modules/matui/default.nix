@@ -8,15 +8,20 @@
 , ...
 }:
 
-rustPlatform.buildRustPackage rec {
+let
+  # we need Rust 1.7
+  unstable = import (fetchTarball("channel:nixpkgs-unstable")) {};
+in
+
+unstable.rustPlatform.buildRustPackage rec {
   pname = "matui";
-  version = "0.4.1";
+  version = "0.4.4";
 
   src = fetchFromGitHub {
     owner = "pkulak";
     repo = "matui";
     rev = "v${version}";
-    hash = "sha256-8YKBL0/wXdUFKDvAXs/OPxjdukGvGHTYswd/Fhq69bU=";
+    hash = "sha256-B3N1Kq3/cjyCgsNrh8r53GYqB2KaXAWg8xIj79hbK6g=";
   };
 
   cargoLock = {
