@@ -63,8 +63,12 @@
     services.openssh = {
       enable = true;
       settings = {
-        PasswordAuthentication = true;
+        PasswordAuthentication = false;
       };
+    };
+
+    users.users.phil = {
+      openssh.authorizedKeys.keys = [ "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA2lQGc0oA11Lgo+C3Mo9gYAWsvv/G3vA5lGoHISJ5mGLGZEcFol7coxVjtzkoWE1k0blwGPUwc1aDMwCz7Nmz5nD8GLl9J3OLi3YynmsQAiqM07D/RPLq7YqtkDOLTIwTbBV6SpX+ytw/hLT8LnWen4VwIDHPTzWMrirTGJK5BFD7jEXhHFS/ZSgoxYqA5rie3GrJ7JK/Wy7/+rJjD/JSaswcefVi5aESXJQS2aur2HYK90ZeG+YdYL7+NNYdfapz3BFgIjTf8SAOlo9NN3NSUjb58HdtCWLNRMfji/fEdy0WsA0I4/mMxBqih9zb2TWsyDj0tp6IYyVlmOpIKdKkgQ== phil@fry" ];
     };
 
     virtualisation.containers.enable = true;
