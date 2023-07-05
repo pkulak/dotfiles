@@ -4,6 +4,7 @@
   imports = [ 
     ./snapper.nix
     ./smb.nix
+    ./sublime-music.nix
     ./sway.nix
   ];
 
@@ -31,7 +32,6 @@
       podman
       ripgrep
       sublime-merge
-      sublime-music
       tldr
       woeusb
       xdragon
@@ -42,13 +42,19 @@
     ];
 
     # Udev rule for game controllers
-    services.udev.packages = [ (pkgs.callPackage ./gamedevices.nix pkgs) ];
+    services.udev.packages = [ (pkgs.callPackage ./game-devices.nix pkgs) ];
 
     # Create a timer to auto-upgrade
     system.autoUpgrade.enable = true;
 
     # Tame the proxy a bit to let Wireguard work
     networking.firewall.checkReversePath = false;
+
+    # Allow users to nice down to -10
+    security.pam.loginLimits = [
+      { domain = "phil"; type = "-"; item = "nice"; value = "-10"; }
+      { domain = "phil"; type = "-"; item = "nofile"; value = "1048576"; }
+    ];
 
     programs.fish.enable = true;
 
