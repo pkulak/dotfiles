@@ -11,5 +11,10 @@ output HDMI-A-1 pos 1536 0
 
 workspace 1
 
+bindsym XF86MonBrightnessUp exec light -A 10
+bindsym XF86MonBrightnessDown exec light -U 10
+
+exec nm-applet
+
 exec ~/.config/sway/home-screen-t460
 

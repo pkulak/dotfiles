@@ -11,13 +11,13 @@
         "memory",
         "disk",
         "sway/mode",
-        "custom/media"
+        "sway/window"
     ],
     "modules-center": [
         "sway/workspaces"
     ],
     "modules-right": [
-        "custom/weather",
+        "custom/media",
         "pulseaudio#sink",
         "backlight",
         "battery",
@@ -51,9 +51,15 @@
     "sway/mode": {
         "format": "{}"
     },
-    "sway/language": {
+    "sway/window": {
         "format": "{}",
-        "max-length": 50
+        "max-length": 50,
+        "all-outputs" : true,
+        "offscreen-css" : true,
+        "offscreen-css-text": "(inactive)",
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "  $1",
+        },
     },
     "mpd": {
         "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) \u2e28{songPosition}|{queueLength}\u2e29 \uf001",
@@ -197,11 +203,6 @@
         "max-length": 40,
         "escape": true,
         "exec": "$HOME/.config/waybar/modules/mediaplayer.py 2> /dev/null"
-    },
-    "custom/packages": {
-        "interval": 86400,
-        "exec": "checkupdates | wc -l",
-        "format": "{} \uf0ad"
     },
     "custom/weather": {
         "format": "{}",
