@@ -18,6 +18,7 @@
       chezmoi
       distrobox
       ffmpeg
+      file
       firefox
       git
       glib

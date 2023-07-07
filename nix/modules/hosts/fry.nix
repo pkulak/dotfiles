@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
 
-{
-  networking.hostName = "fry";
-  boot.initrd.kernelModules = ["amdgpu"];
-}
+let
+  vuescan = (pkgs.callPackage ../vuescan.nix pkgs);
+in
+  {
+    networking.hostName = "fry";
+    boot.initrd.kernelModules = ["amdgpu"];
+
+    services.udev.packages = [ vuescan ];
+    environment.systemPackages = [ vuescan ];
+  }
