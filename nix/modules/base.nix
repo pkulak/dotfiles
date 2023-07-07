@@ -25,18 +25,20 @@
       gnome.zenity
       gocryptfs
       imv
-      lf
+      jetbrains.idea-ultimate
       mpv
       networkmanagerapplet
       pamixer
       pavucontrol
       podman
+      ranger
       ripgrep
       sublime-merge
       tldr
       woeusb
       xdragon
       yt-dlp
+      zathura
 
       (pkgs.callPackage ./matui/default.nix pkgs)
       (pkgs.callPackage ./pgen/default.nix pkgs)
